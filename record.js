@@ -11,6 +11,10 @@ Record.prototype = {
 
   getTitle: function(){
     return this.title;
+  },
+
+  getPrice: function(){
+    return this.price;
   }
 }
 
