@@ -7,6 +7,10 @@ var Record = function(name, title, price){
 Record.prototype = {
   getName: function(){
     return this.name;
+  },
+
+  getTitle: function(){
+    return this.title;
   }
 }
 
