@@ -1,5 +1,3 @@
-var Record = require('./record');
-
 var Store = function(name, city, balance){
   this.name = name,
   this.city = city,
@@ -23,6 +21,10 @@ Store.prototype = {
 
   getBalance: function(){
     return this.balance;
+  },
+
+  addRecord: function(item){
+    this.inventory.push(item);
   }
 };
 
