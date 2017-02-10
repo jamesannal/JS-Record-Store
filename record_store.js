@@ -1,9 +1,10 @@
 var Record = require('./record');
 
-var Store = function(name, city){
+var Store = function(name, city, balance){
   this.name = name,
   this.city = city,
   this.inventory = []
+  this.balance = balance
 }
 
 Store.prototype = {
@@ -13,7 +14,15 @@ Store.prototype = {
   },
 
   getCity: function() {
-    return this.city
+    return this.city;
+  },
+
+  getInventoryCount: function(){
+    return this.inventory.length;
+  },
+
+  getBalance: function(){
+    return this.balance;
   }
 };
 
