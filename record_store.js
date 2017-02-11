@@ -25,6 +25,15 @@ Store.prototype = {
 
   addRecord: function(item){
     this.inventory.push(item);
+  },
+
+  showInventory: function(){
+    var instance = "";
+    for (var item of this.inventory) {
+      var reply = "Artist: " + item.name + ", Title: " + item.title + ", Price: " + item.price + '. ' 
+      instance += reply;
+    }
+    return instance;
   }
 };
 

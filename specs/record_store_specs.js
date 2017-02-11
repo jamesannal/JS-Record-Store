@@ -31,6 +31,10 @@ describe('Store', function() {
     var record2 = new Record('Air', 'Moon Safari', 8);
     store.addRecord(record2);
     assert.equal(2, store.getInventoryCount());
+  }),
+
+  it('should be able to list full inventory', function(){
+    assert.equal("Artist: Rage Against The Machine, Title: The Battle For Los Angeles, Price: 9. Artist: Air, Title: Moon Safari, Price: 8. ", store.showInventory());
   })
 
 })
