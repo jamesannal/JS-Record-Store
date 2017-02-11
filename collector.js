@@ -24,11 +24,15 @@ Collector.prototype = {
   },
 
   sell: function(record_store, record) {
-    this.cash += record.price;
-    record_store.balance -= record.price;
-    var index = this.collection.indexOf(record);
-    this.collection.splice(index,1);
-    record_store.inventory.push(record);
+    if(record_store.balance >= record.price){
+      this.cash += record.price;
+      record_store.balance -= record.price;
+      var index = this.collection.indexOf(record);
+      this.collection.splice(index,1);
+      record_store.inventory.push(record);
+    } else {
+      return "You've bankrupted us!"
+    };
   },
 }
 

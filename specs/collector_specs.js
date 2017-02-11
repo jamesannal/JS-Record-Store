@@ -46,9 +46,15 @@ describe("Collector", function(){
 
   it("should be possible for collector to sell to store", function(){
     collector.addRecordToCustomer(record_store, record5);
+    collector.buy(record_store, record1);
     collector.sell(record_store, record5);
-    assert.equal(24, collector.cash);
+    assert.equal(18, collector.cash);
+    assert.equal(4, record_store.getInventoryCount());
+  });
 
+  it("should not allow store to buy record if not enough money", function(){
+    collector.addRecordToCustomer(record_store,record5);
+    assert.equal("You've bankrupted us!", collector.sell(record_store, record5))
   })
 
 
