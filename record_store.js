@@ -42,8 +42,14 @@ Store.prototype = {
     this.inventory.splice(index, 1);
   },
 
-  empty: function(){
-    store.inventory =[];
+  getReport: function(){
+    var stockValue = 0;
+    var total = 0;
+    total += this.balance;
+    for( var record of this.inventory) {
+      stockValue += record.price;
+    }
+    return "Stock Value: " + stockValue + ", Balance: " + total + "."
   }
 };
 
