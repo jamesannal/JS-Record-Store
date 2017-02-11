@@ -37,8 +37,13 @@ Store.prototype = {
   },
 
   sellRecord: function(item){
+    this.balance += item.price;
     var index = this.inventory.indexOf(item);
     this.inventory.splice(index, 1);
+  },
+
+  empty: function(){
+    store.inventory =[];
   }
 };
 

@@ -44,6 +44,16 @@ describe('Store', function() {
     assert.equal(2, store.getInventoryCount());
   }),
 
-  xit('should increase store balance when record sold')
-
+  it('should increase store balance when record sold', function(){
+    var store = new Store('Bobs Record Store', 'Edinburgh', 0);
+    var record2 = new Record('Air', 'Moon Safari', 8);
+    var record3 = new Record('Coal Chamber', 'Chamber Music', 3);
+    var record4 = new Record('Static-X', 'Wisconsin Death Trip', 4);
+    store.addRecord(record2);
+    store.addRecord(record3);
+    store.addRecord(record4);
+    store.sellRecord(record4);
+    assert.equal(2, store.getInventoryCount());
+    assert.equal(4, store.getBalance());
+  })
 })
