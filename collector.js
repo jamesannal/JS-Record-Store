@@ -21,7 +21,15 @@ Collector.prototype = {
     } else {
       return "Get lost cheapskate!"
     };
-  }
+  },
+
+  sell: function(record_store, record) {
+    this.cash += record.price;
+    record_store.balance -= record.price;
+    var index = this.collection.indexOf(record);
+    this.collection.splice(index,1);
+    record_store.inventory.push(record);
+  },
 }
 
 module.exports = Collector;

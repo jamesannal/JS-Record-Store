@@ -19,6 +19,7 @@ describe("Collector", function(){
     record2 = new Record("A Perfect Circle", "The Thirteenth Step", 12);
     record3 = new Record("Stabbing Westward", "Ungod", 5);
     record4 = new Record("Morcheeba", "The Big Calm", 8);
+    record5 = new Record("The Barenaked Ladies", "Maroon", 4);
     record_store.addRecord(record1);
     record_store.addRecord(record2);
     record_store.addRecord(record3);
@@ -37,11 +38,19 @@ describe("Collector", function(){
     assert.equal(1, collector.getCollection());
   });
 
-  it("should reject sale if customer doesn't have enough money", function(){
+  it("should reject sale if collector doesn't have enough money", function(){
     collector.buy(record_store, record1);
     collector.buy(record_store, record2);
     assert.equal("Get lost cheapskate!", collector.buy(record_store, record2));
   });
+
+  it("should be possible for collector to sell to store", function(){
+    collector.addRecordToCustomer(record_store, record5);
+    collector.sell(record_store, record5);
+    assert.equal(24, collector.cash);
+
+  })
+
 
 
 });
