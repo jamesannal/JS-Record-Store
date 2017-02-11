@@ -34,6 +34,11 @@ Store.prototype = {
       instance += reply;
     }
     return instance;
+  },
+
+  sellRecord: function(item){
+    var index = this.inventory.indexOf(item);
+    this.inventory.splice(index, 1);
   }
 };
 

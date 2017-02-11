@@ -35,6 +35,15 @@ describe('Store', function() {
 
   it('should be able to list full inventory', function(){
     assert.equal("Artist: Rage Against The Machine, Title: The Battle For Los Angeles, Price: 9. Artist: Air, Title: Moon Safari, Price: 8. ", store.showInventory());
-  })
+  }),
+
+  it('should be able to sell record', function(){
+    var record3 = new Record('Coal Chamber', 'Chamber Music', 3);
+    store.addRecord(record3);
+    store.sellRecord(record3);
+    assert.equal(2, store.getInventoryCount());
+  }),
+
+  xit('should increase store balance when record sold')
 
 })
